@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Model Results for {{ filename }}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  
+  <!-- Favicons -->
+  <link href="static/img/favicon.png" rel="icon">
+  <link href="static/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Logis - v1.0.1
+  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="static/images/logo.png" alt="">
+        <h1>AI Camp</h1>
+      </a>
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{{ url_for('home') }}" class="active">Home</a></li>
+          <li><a href="{{ url_for('about') }}">About</a></li>
+          <li><a class="get-a-quote" href="{{ url_for('submit_file') }}">Try It Out</a></li>
+        </ul>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="page-header d-flex align-items-center" style="background-image: url('static/img/page-header.jpg');">
+        <div class="container position-relative">
+          <div class="row d-flex justify-content-center">
+            <div class="col-lg-6 text-center">
+              <h2>Model Results for {{ filename }}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End Breadcrumbs -->
+    
+    <!--Results -->
+    <section id="msg-box4-2" data-rv-view="2" >
+        <div class="container" style="justify-content:center; align-items:center; text:center; margin:auto;">
+          <div class="row">
+                <div class="col">
+                    <h3 class="section-title display-4">Recognition Results</h3>
+                    <h3 class="we-found btn-text display-4">We found <strong><span style='text-transform: capitalize;'>{{labels}}!</span></strong></h3>
+                  
+                    {% if labels == 'No Parking Spots' %}
+                    <div>We missed? See why below.</div>
+                    {% else %}
+                    <div class="lead"><em>with {{ confidences }} confidence.</em></div>
+                    {% endif %}
+<!--                     <a class="mb-0" id='seefood_button'> -->
+                    <br>
+                    <div id="try-again" onclick="redirectSubmit()" class="btn btn-white btn-circled btn-results btn-text mt-3">
+                        <i class="fas fa-camera pr-2 left text-dark" aria-hidden="true"></i>  Try Again
+                    </div>
+                    <script>
+                      function redirectSubmit() {
+                        window.location.href = "{{ url_for('submit_file') }}";
+                      }
+                    </script>
+                </div>
+                <div class="col">
+                    <img class="mbr-figure" src="{{ url_for('static', filename='uploads/annotated/' + filename)}}">
+                </div>
+                </div>
+           </div>
+    </section>
+    
+    <!-- Why we miss -->
+    <section class="mbr-section mbr-section-nopadding" id="services-2" data-rv-view="5" style="padding-top: 60px; margin:auto; padding-bottom: 60px; display:flex; justify-content:center; width: 60%;">
+            <div class="row" style="margin:auto;">
+                <div class="col-sm-12 col-lg-6 text-center">
+                    <h3 class="section-title display-4 results-title">Why do we miss sometimes?</h3>
+
+                    <div class="lead">
+                        <p class="section-text results-text">In the three weeks of time spent making this project, not that much data (only about 250 images) had been labeled. With more time, it could become more accurate.&nbsp;</p>
+                    </div>
+
+                </div>
+            </div>
+    </section>
+      <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-5 col-md-12 footer-info">
+          <a href="{{ url_for('home') }}" class="logo d-flex align-items-center">
+            <span>Parking Spot Detection</span>
+          </a>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About Us</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6 footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="{{ url_for('submit_file') }}">Try It Out</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+
+  </footer>
+  <!-- End Footer -->
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,302 @@
+[
+  {
+    "file": "/samples/example-empty.jpg",
+    "id": "example-empty",
+    "title": "Empty lot",
+    "caption": "Nearly every space free",
+    "width": 640,
+    "height": 480,
+    "featured": true,
+    "expected": {
+      "occupied": 2,
+      "open": 37,
+      "total": 39,
+      "occupancyRate": 0.0513
+    }
+  },
+  {
+    "file": "/samples/example-full.jpg",
+    "id": "example-full",
+    "title": "Busy lot",
+    "caption": "Most spaces taken",
+    "width": 640,
+    "height": 480,
+    "featured": true,
+    "expected": {
+      "occupied": 20,
+      "open": 8,
+      "total": 28,
+      "occupancyRate": 0.7143
+    }
+  },
+  {
+    "file": "/samples/phone-lot-2.jpg",
+    "id": "phone-lot-2",
+    "title": "Phone photo, portrait",
+    "caption": "Portrait crop, off-angle",
+    "width": 888,
+    "height": 1024,
+    "featured": true,
+    "expected": {
+      "occupied": 9,
+      "open": 3,
+      "total": 12,
+      "occupancyRate": 0.75
+    }
+  },
+  {
+    "file": "/samples/phone-lot-1.jpg",
+    "id": "phone-lot-1",
+    "title": "Phone photo",
+    "caption": "Handheld, not the training camera",
+    "width": 1024,
+    "height": 577,
+    "featured": true,
+    "expected": {
+      "occupied": 8,
+      "open": 2,
+      "total": 10,
+      "occupancyRate": 0.8
+    }
+  },
+  {
+    "file": "/samples/example-hard.jpg",
+    "id": "example-hard",
+    "title": "Hard case",
+    "caption": "Dense rows, heavy overlap",
+    "width": 640,
+    "height": 480,
+    "featured": true,
+    "expected": {
+      "occupied": 15,
+      "open": 1,
+      "total": 16,
+      "occupancyRate": 0.9375
+    }
+  },
+  {
+    "file": "/samples/overhead_lot_1.jpg",
+    "id": "overhead_lot_1",
+    "title": "Overhead lot",
+    "caption": "Straight-down view",
+    "width": 1200,
+    "height": 675,
+    "featured": true,
+    "expected": {
+      "occupied": 18,
+      "open": 0,
+      "total": 18,
+      "occupancyRate": 1.0
+    }
+  },
+  {
+    "file": "/samples/GOPR6542.jpg",
+    "id": "GOPR6542",
+    "title": "Lot #6542",
+    "caption": "39 free of 39",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 0,
+      "open": 39,
+      "total": 39,
+      "occupancyRate": 0.0
+    }
+  },
+  {
+    "file": "/samples/GOPR6541.jpg",
+    "id": "GOPR6541",
+    "title": "Lot #6541",
+    "caption": "51 free of 52",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 1,
+      "open": 51,
+      "total": 52,
+      "occupancyRate": 0.0192
+    }
+  },
+  {
+    "file": "/samples/GOPR6635.jpg",
+    "id": "GOPR6635",
+    "title": "Lot #6635",
+    "caption": "44 free of 48",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 4,
+      "open": 44,
+      "total": 48,
+      "occupancyRate": 0.0833
+    }
+  },
+  {
+    "file": "/samples/GOPR0090.jpg",
+    "id": "GOPR0090",
+    "title": "Lot #0090",
+    "caption": "44 free of 51",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 7,
+      "open": 44,
+      "total": 51,
+      "occupancyRate": 0.1373
+    }
+  },
+  {
+    "file": "/samples/GOPR6600.jpg",
+    "id": "GOPR6600",
+    "title": "Lot #6600",
+    "caption": "20 free of 27",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 7,
+      "open": 20,
+      "total": 27,
+      "occupancyRate": 0.2593
+    }
+  },
+  {
+    "file": "/samples/GOPR6628.jpg",
+    "id": "GOPR6628",
+    "title": "Lot #6628",
+    "caption": "26 free of 41",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 15,
+      "open": 26,
+      "total": 41,
+      "occupancyRate": 0.3659
+    }
+  },
+  {
+    "file": "/samples/GOPR6643.jpg",
+    "id": "GOPR6643",
+    "title": "Lot #6643",
+    "caption": "19 free of 31",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 12,
+      "open": 19,
+      "total": 31,
+      "occupancyRate": 0.3871
+    }
+  },
+  {
+    "file": "/samples/GOPR6653.jpg",
+    "id": "GOPR6653",
+    "title": "Lot #6653",
+    "caption": "5 free of 10",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 5,
+      "open": 5,
+      "total": 10,
+      "occupancyRate": 0.5
+    }
+  },
+  {
+    "file": "/samples/GOPR6702.jpg",
+    "id": "GOPR6702",
+    "title": "Lot #6702",
+    "caption": "14 free of 42",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 28,
+      "open": 14,
+      "total": 42,
+      "occupancyRate": 0.6667
+    }
+  },
+  {
+    "file": "/samples/GOPR6588.jpg",
+    "id": "GOPR6588",
+    "title": "Lot #6588",
+    "caption": "3 free of 11",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 8,
+      "open": 3,
+      "total": 11,
+      "occupancyRate": 0.7273
+    }
+  },
+  {
+    "file": "/samples/GOPR6555.jpg",
+    "id": "GOPR6555",
+    "title": "Lot #6555",
+    "caption": "2 free of 9",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 7,
+      "open": 2,
+      "total": 9,
+      "occupancyRate": 0.7778
+    }
+  },
+  {
+    "file": "/samples/GOPR6778.jpg",
+    "id": "GOPR6778",
+    "title": "Lot #6778",
+    "caption": "6 free of 39",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 33,
+      "open": 6,
+      "total": 39,
+      "occupancyRate": 0.8462
+    }
+  },
+  {
+    "file": "/samples/GOPR6575.jpg",
+    "id": "GOPR6575",
+    "title": "Lot #6575",
+    "caption": "1 free of 12",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 11,
+      "open": 1,
+      "total": 12,
+      "occupancyRate": 0.9167
+    }
+  },
+  {
+    "file": "/samples/GOPR6567.jpg",
+    "id": "GOPR6567",
+    "title": "Lot #6567",
+    "caption": "0 free of 12",
+    "width": 640,
+    "height": 480,
+    "featured": false,
+    "expected": {
+      "occupied": 12,
+      "open": 0,
+      "total": 12,
+      "occupancyRate": 1.0
+    }
+  }
+]

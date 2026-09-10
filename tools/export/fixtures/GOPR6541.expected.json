@@ -1,0 +1,606 @@
+{
+  "image": "GOPR6541_JPG.rf.3dd4ae5b4075b65a2125bba397f23655.jpg",
+  "imgsz": 416,
+  "origWidth": 640,
+  "origHeight": 480,
+  "letterbox": {
+    "r": 0.65,
+    "padLeft": 0,
+    "padTop": 52,
+    "w0": 640,
+    "h0": 480
+  },
+  "rawShape": [
+    1,
+    10647,
+    7
+  ],
+  "classes": [
+    "Occupied-Parking-Spaces",
+    "Open-Parking-Spaces"
+  ],
+  "params": {
+    "conf": 0.25,
+    "iou": 0.45,
+    "maxDet": 300
+  },
+  "counts": {
+    "total": 52,
+    "occupied": 1,
+    "open": 51
+  },
+  "detections": [
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.862897,
+      "box": {
+        "x1": 159.0,
+        "y1": 327.0,
+        "x2": 320.0,
+        "y2": 475.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.861094,
+      "box": {
+        "x1": 119.0,
+        "y1": 279.0,
+        "x2": 260.0,
+        "y2": 435.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.857395,
+      "box": {
+        "x1": 370.0,
+        "y1": 137.0,
+        "x2": 473.0,
+        "y2": 224.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.855649,
+      "box": {
+        "x1": 100.0,
+        "y1": 253.0,
+        "x2": 213.0,
+        "y2": 379.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.832734,
+      "box": {
+        "x1": 435.0,
+        "y1": 155.0,
+        "x2": 521.0,
+        "y2": 249.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.821536,
+      "box": {
+        "x1": 492.0,
+        "y1": 172.0,
+        "x2": 572.0,
+        "y2": 288.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.813949,
+      "box": {
+        "x1": 318.0,
+        "y1": 112.0,
+        "x2": 430.0,
+        "y2": 198.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.804628,
+      "box": {
+        "x1": 475.0,
+        "y1": 112.0,
+        "x2": 538.0,
+        "y2": 167.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.80243,
+      "box": {
+        "x1": 551.0,
+        "y1": 197.0,
+        "x2": 624.0,
+        "y2": 326.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.795222,
+      "box": {
+        "x1": 529.0,
+        "y1": 127.0,
+        "x2": 578.0,
+        "y2": 191.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.794806,
+      "box": {
+        "x1": 288.0,
+        "y1": 112.0,
+        "x2": 373.0,
+        "y2": 170.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.784559,
+      "box": {
+        "x1": 40.0,
+        "y1": 337.0,
+        "x2": 115.0,
+        "y2": 434.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.780053,
+      "box": {
+        "x1": 85.0,
+        "y1": 222.0,
+        "x2": 182.0,
+        "y2": 329.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.763406,
+      "box": {
+        "x1": 389.0,
+        "y1": 84.0,
+        "x2": 459.0,
+        "y2": 126.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.757254,
+      "box": {
+        "x1": 19.0,
+        "y1": 303.0,
+        "x2": 95.0,
+        "y2": 415.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.74283,
+      "box": {
+        "x1": 345.0,
+        "y1": 74.0,
+        "x2": 407.0,
+        "y2": 116.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.737697,
+      "box": {
+        "x1": 246.0,
+        "y1": 98.0,
+        "x2": 331.0,
+        "y2": 158.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.688561,
+      "box": {
+        "x1": 225.0,
+        "y1": 94.0,
+        "x2": 306.0,
+        "y2": 144.0
+      }
+    },
+    {
+      "classId": 0,
+      "className": "Occupied-Parking-Spaces",
+      "score": 0.683383,
+      "box": {
+        "x1": 425.0,
+        "y1": 94.0,
+        "x2": 500.0,
+        "y2": 146.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.680609,
+      "box": {
+        "x1": 519.0,
+        "y1": 59.0,
+        "x2": 554.0,
+        "y2": 85.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.67385,
+      "box": {
+        "x1": 306.0,
+        "y1": 65.0,
+        "x2": 362.0,
+        "y2": 103.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.673652,
+      "box": {
+        "x1": 332.0,
+        "y1": 66.0,
+        "x2": 390.0,
+        "y2": 108.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.671399,
+      "box": {
+        "x1": 193.0,
+        "y1": 90.0,
+        "x2": 261.0,
+        "y2": 137.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.665123,
+      "box": {
+        "x1": 430.0,
+        "y1": 97.0,
+        "x2": 501.0,
+        "y2": 148.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.662831,
+      "box": {
+        "x1": 15.0,
+        "y1": 283.0,
+        "x2": 62.0,
+        "y2": 360.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.632326,
+      "box": {
+        "x1": 70.0,
+        "y1": 199.0,
+        "x2": 153.0,
+        "y2": 283.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.62621,
+      "box": {
+        "x1": 225.0,
+        "y1": 381.0,
+        "x2": 373.0,
+        "y2": 480.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.60909,
+      "box": {
+        "x1": 552.0,
+        "y1": 70.0,
+        "x2": 584.0,
+        "y2": 99.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.600876,
+      "box": {
+        "x1": 620.0,
+        "y1": 125.0,
+        "x2": 640.0,
+        "y2": 158.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.558959,
+      "box": {
+        "x1": 12.0,
+        "y1": 206.0,
+        "x2": 53.0,
+        "y2": 266.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.558559,
+      "box": {
+        "x1": 61.0,
+        "y1": 379.0,
+        "x2": 150.0,
+        "y2": 458.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.544086,
+      "box": {
+        "x1": 156.0,
+        "y1": 83.0,
+        "x2": 223.0,
+        "y2": 115.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.534005,
+      "box": {
+        "x1": 275.0,
+        "y1": 63.0,
+        "x2": 351.0,
+        "y2": 96.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.515602,
+      "box": {
+        "x1": 13.0,
+        "y1": 270.0,
+        "x2": 50.0,
+        "y2": 333.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.47276,
+      "box": {
+        "x1": 178.0,
+        "y1": 88.0,
+        "x2": 238.0,
+        "y2": 128.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.443524,
+      "box": {
+        "x1": 586.0,
+        "y1": 83.0,
+        "x2": 617.0,
+        "y2": 111.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.440496,
+      "box": {
+        "x1": 459.0,
+        "y1": 43.0,
+        "x2": 499.0,
+        "y2": 63.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.38381,
+      "box": {
+        "x1": 429.0,
+        "y1": 39.0,
+        "x2": 467.0,
+        "y2": 57.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.380956,
+      "box": {
+        "x1": 565.0,
+        "y1": 75.0,
+        "x2": 587.0,
+        "y2": 100.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.376297,
+      "box": {
+        "x1": 583.0,
+        "y1": 79.0,
+        "x2": 606.0,
+        "y2": 104.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.374812,
+      "box": {
+        "x1": 491.0,
+        "y1": 52.0,
+        "x2": 524.0,
+        "y2": 77.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.374128,
+      "box": {
+        "x1": 572.0,
+        "y1": 143.0,
+        "x2": 634.0,
+        "y2": 224.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.370093,
+      "box": {
+        "x1": 0.0,
+        "y1": 339.0,
+        "x2": 27.0,
+        "y2": 397.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.356501,
+      "box": {
+        "x1": 18.0,
+        "y1": 255.0,
+        "x2": 65.0,
+        "y2": 321.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.354584,
+      "box": {
+        "x1": 615.0,
+        "y1": 223.0,
+        "x2": 640.0,
+        "y2": 331.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.338131,
+      "box": {
+        "x1": 258.0,
+        "y1": 61.0,
+        "x2": 326.0,
+        "y2": 90.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.315954,
+      "box": {
+        "x1": 57.0,
+        "y1": 410.0,
+        "x2": 163.0,
+        "y2": 477.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.29267,
+      "box": {
+        "x1": 621.0,
+        "y1": 92.0,
+        "x2": 639.0,
+        "y2": 125.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.286879,
+      "box": {
+        "x1": 405.0,
+        "y1": 36.0,
+        "x2": 444.0,
+        "y2": 54.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.260017,
+      "box": {
+        "x1": 484.0,
+        "y1": 63.0,
+        "x2": 518.0,
+        "y2": 80.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.254035,
+      "box": {
+        "x1": 609.0,
+        "y1": 86.0,
+        "x2": 638.0,
+        "y2": 114.0
+      }
+    },
+    {
+      "classId": 1,
+      "className": "Open-Parking-Spaces",
+      "score": 0.252441,
+      "box": {
+        "x1": 6.0,
+        "y1": 271.0,
+        "x2": 31.0,
+        "y2": 324.0
+      }
+    }
+  ]
+}

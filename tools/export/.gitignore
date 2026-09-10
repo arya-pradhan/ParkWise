@@ -1,0 +1,5 @@
+# Local export toolchain — recreate with the commands in README.md
+.venv/
+yolov5/
+out/
+*.onnx
