@@ -135,8 +135,6 @@ type InMsg =
   | { type: 'inferFrame'; id: number; index: number; time: number; bitmap: ImageBitmap; w0: number; h0: number }
   | { type: 'abort' };
 
-let aborted = false;
-
 self.onmessage = async (e: MessageEvent<InMsg>) => {
   const msg = e.data;
   try {
@@ -148,12 +146,14 @@ self.onmessage = async (e: MessageEvent<InMsg>) => {
     }
 
     if (msg.type === 'abort') {
-      aborted = true;
+      // Nothing to drain: the client awaits each frame before sending the
+      // next, so there is never a worker-side queue. Cancellation is handled
+      // entirely by the client ignoring late results. Kept as a no-op so the
+      // protocol stays symmetric.
       return;
     }
 
     if (msg.type === 'infer') {
-      aborted = false;
       const { raw, letterbox, inferenceMs, ep } = await infer(msg.bitmap, msg.w0, msg.h0);
       const copy = new Float32Array(raw); // detach from ORT's internal buffer
       self.postMessage(
@@ -173,10 +173,6 @@ self.onmessage = async (e: MessageEvent<InMsg>) => {
     }
 
     if (msg.type === 'inferFrame') {
-      if (aborted) {
-        msg.bitmap.close();
-        return;
-      }
       const { raw, letterbox, inferenceMs } = await infer(msg.bitmap, msg.w0, msg.h0);
       const packed = packSurvivors(raw);
       self.postMessage(
