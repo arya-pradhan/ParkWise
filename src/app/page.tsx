@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Container } from '@/components/site/Container';
 
@@ -5,50 +6,76 @@ export default function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden">
-        <Container className="pt-16 pb-14 sm:pt-24 sm:pb-20">
-          <div className="max-w-2xl">
-            <p
-              className="mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium"
-              style={{ background: 'var(--bg-raised)', color: 'var(--text-muted)' }}
-            >
-              <span
-                className="size-1.5 rounded-full"
-                style={{ background: 'var(--color-open)' }}
-              />
-              Runs entirely in your browser
-            </p>
-
-            <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-              Find the open spaces
-              <br />
-              in a parking lot.
-            </h1>
-
-            <p
-              className="mt-5 text-lg leading-relaxed"
-              style={{ color: 'var(--text-muted)' }}
-            >
-              Drop in a photo of a lot. A YOLOv5s detector counts which spaces
-              are free and which are taken, and shows you exactly where they
-              are — without your image ever leaving your device.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href="/detect"
-                className="rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
-                style={{ background: 'var(--color-open)' }}
+        <Container className="pt-14 pb-12 sm:pt-20 sm:pb-16">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
+            <div className="max-w-xl">
+              <p
+                className="mb-4 inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-medium"
+                style={{ background: 'var(--bg-raised)', color: 'var(--text-muted)' }}
               >
-                Try it on a photo
-              </Link>
-              <Link
-                href="/model"
-                className="rounded-lg border px-5 py-2.5 text-sm font-medium transition-colors"
-                style={{ background: 'var(--bg-raised)' }}
-              >
-                How it works
-              </Link>
+                <span className="size-1.5 rounded-full" style={{ background: 'var(--color-open)' }} />
+                Runs entirely in your browser
+              </p>
+
+              <h1 className="text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
+                Find the open spaces
+                <br />
+                in a parking lot.
+              </h1>
+
+              <p className="mt-5 text-lg leading-relaxed" style={{ color: 'var(--text-muted)' }}>
+                Drop in a photo of a lot. A YOLOv5s detector counts which spaces
+                are free and which are taken, and shows you exactly where they
+                are — without your image ever leaving your device.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/detect"
+                  className="rounded-lg px-5 py-2.5 text-sm font-medium text-white transition-opacity hover:opacity-90"
+                  style={{ background: 'var(--color-open)' }}
+                >
+                  Try it on a photo
+                </Link>
+                <Link
+                  href="/model"
+                  className="rounded-lg border px-5 py-2.5 text-sm font-medium transition-colors"
+                  style={{ background: 'var(--bg-raised)' }}
+                >
+                  How it works
+                </Link>
+              </div>
             </div>
+
+            <figure className="relative">
+              <div
+                className="overflow-hidden rounded-2xl border"
+                style={{ boxShadow: 'var(--shadow)' }}
+              >
+                <Image
+                  src="/hero.jpg"
+                  alt="An overhead photo of a busy parking lot with every space outlined: dashed red boxes on occupied spaces, solid green boxes on open ones"
+                  width={1280}
+                  height={960}
+                  priority
+                  className="h-auto w-full"
+                />
+              </div>
+              <figcaption
+                className="absolute bottom-3 left-3 flex items-center gap-3 rounded-lg border px-3 py-1.5 text-xs backdrop-blur"
+                style={{ background: 'color-mix(in oklch, var(--bg-raised) 88%, transparent)' }}
+              >
+                <span className="inline-flex items-center gap-1.5 tnum">
+                  <span className="size-2 rounded-[3px]" style={{ background: 'var(--color-open)' }} />
+                  5 open
+                </span>
+                <span className="inline-flex items-center gap-1.5 tnum">
+                  <span className="size-2 rounded-[3px]" style={{ background: 'var(--color-occupied)' }} />
+                  19 occupied
+                </span>
+                <span style={{ color: 'var(--text-faint)' }}>· sample output</span>
+              </figcaption>
+            </figure>
           </div>
         </Container>
       </section>
