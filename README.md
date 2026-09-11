@@ -45,8 +45,44 @@ npm install
 npm run dev
 ```
 
-`predev`/`prebuild` copy the onnxruntime-web `.wasm` binaries into
-`public/ort/`, so no CDN is involved.
+`predev`/`prebuild` copy the onnxruntime-web `.wasm` binaries and ESM bundle
+into `public/ort/`, so no CDN is involved. The detector worker imports ORT at
+runtime from there rather than bundling it — ORT spawns its own threads with
+`new Worker(import.meta.url)`, and a bundled `import.meta.url` becomes a
+`file://` path the browser refuses.
+
+## Verify
+
+Three layers, each isolating a different bug class:
+
+```bash
+npm test          # vitest: TypeScript decode vs yolov5's own NMS, on fixtures
+npm run build && npm start
+npm run e2e       # Playwright/headless Chromium: full browser path
+```
+
+- **`tools/export/verify_parity.py`** — PyTorch vs ONNX on the same tensor, and
+  a hard assertion on class order. Emits the fixtures.
+- **`npm test`** — loads the raw output tensor, skipping preprocessing, and
+  asserts every box and score against yolov5's own `non_max_suppression`.
+  If this passes and the browser disagrees, the bug is in the letterbox.
+- **`npm run e2e`** — drives `/debug/parity` (full canvas → worker → decode path
+  vs the PyTorch fixture, PASS/FAIL with per-box deltas), `/detect`, and
+  `/detect/video` in headless Chromium. Asserts cross-origin isolation, that
+  sliders re-filter without re-running inference, and zero console errors.
+
+The Playwright browser is a one-time `npx playwright install chromium`.
+
+## Deploy
+
+Vercel, framework preset **Next.js**, no configuration needed — everything is
+in `next.config.ts`. The whole site prerenders; there are no serverless
+functions. `public/` is ~60MB (model + wasm), which is well within limits.
+
+After deploying, open the browser console on `/detect` and confirm
+`crossOriginIsolated === true`; the model status line should read
+**WASM · 4 threads** or **WebGPU**. If it says single-threaded, the COOP/COEP
+headers are not reaching the browser.
 
 ## Re-exporting the model
 
@@ -71,6 +107,14 @@ cd tools/export
 | `models/best.pt` | Source-of-truth PyTorch checkpoint |
 | `tools/export/` | Offline export + parity harness (never ships) |
 | `legacy/` | The archived 2022 Flask app |
+
+## License
+
+The application code is this repository's own. The detector is derived from
+[Ultralytics YOLOv5](https://github.com/ultralytics/yolov5), which is
+**AGPL-3.0** — the exported weights and the reimplemented decode are plausibly
+derivative works. A license file has deliberately not been chosen here; see
+the note in the project history.
 
 ## Credits
 

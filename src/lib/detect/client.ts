@@ -49,6 +49,19 @@ export class DetectorClient {
       );
     });
 
+    // A worker that dies AFTER it was ready — the realistic case is mobile
+    // Safari running out of memory mid-inference — would otherwise leave every
+    // in-flight promise pending forever and the UI stuck on "Detecting…".
+    this.worker.addEventListener('error', (e) => {
+      const err = new Error(
+        e.message
+          ? `The detector crashed: ${e.message}`
+          : 'The detector crashed. This can happen on devices with limited memory — try a smaller image or reload.',
+      );
+      for (const p of this.pending.values()) p.reject(err);
+      this.pending.clear();
+    });
+
     this.worker.addEventListener('message', (e: MessageEvent) => {
       const { type, id } = e.data ?? {};
       if (id === undefined) return;

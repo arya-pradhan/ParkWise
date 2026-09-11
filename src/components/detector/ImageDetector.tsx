@@ -146,8 +146,8 @@ export function ImageDetector() {
         </p>
       )}
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-        <div className="space-y-5">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="min-w-0 space-y-5">
           {image ? (
             <div className="relative">
               <DetectionCanvas
@@ -191,7 +191,7 @@ export function ImageDetector() {
           />
         </div>
 
-        <aside className="space-y-5">
+        <aside className="min-w-0 space-y-5">
           {result && <OccupancyStats stats={result.stats} />}
           <ThresholdControls params={params} onChange={setParams} disabled={!raw} />
           {result && (

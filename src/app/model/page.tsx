@@ -22,7 +22,7 @@ export default function ModelPage() {
         </p>
       </header>
 
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_360px]">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-10 lg:grid-cols-[minmax(0,1fr)_360px]">
         <div className="space-y-10">
           <Section title="Overview">
             <p>

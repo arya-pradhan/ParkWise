@@ -153,8 +153,8 @@ export function VideoDetector() {
         </p>
       )}
 
-      <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-        <div className="space-y-5">
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="min-w-0 space-y-5">
           {src ? (
             <div className="relative overflow-hidden rounded-xl border" style={{ background: 'black' }}>
               <video
@@ -247,7 +247,7 @@ export function VideoDetector() {
           />
         </div>
 
-        <aside className="space-y-5">
+        <aside className="min-w-0 space-y-5">
           {current && <OccupancyStats stats={current.stats} />}
 
           {v.analysis.points.length > 1 && (
