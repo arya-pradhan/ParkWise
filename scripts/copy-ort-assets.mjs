@@ -24,10 +24,14 @@ if (!existsSync(src)) {
 
 mkdirSync(dest, { recursive: true });
 
-// Only what the browser actually fetches at runtime. The full dist is ~25MB;
-// this keeps public/ort/ closer to ~12MB. `.mjs` files are the loader glue that
-// sits beside each `.wasm` — both are required.
-const WANTED = /^ort-wasm.*\.(wasm|mjs)$/;
+// Only what the browser actually fetches at runtime:
+//   - ort-wasm-*.wasm / .mjs  — the backends and their loader glue
+//   - ort.webgpu.bundle.min.mjs — the ESM entry, which the detector worker
+//     imports AT RUNTIME from /ort/ rather than bundling. ORT spawns its own
+//     internal threads with `new Worker(import.meta.url)`; if webpack bundled
+//     it, import.meta.url would be rewritten to a file:// path and the browser
+//     would refuse it as cross-origin. Served from /ort/, it's same-origin.
+const WANTED = /^(ort-wasm.*\.(wasm|mjs)|ort\.webgpu\.bundle\.min\.mjs)$/;
 
 let copied = 0;
 let bytes = 0;

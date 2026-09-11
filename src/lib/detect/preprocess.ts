@@ -78,7 +78,10 @@ export function preprocess(
   ctx.fillRect(0, 0, size, size);
 
   ctx.imageSmoothingEnabled = true;
-  ctx.imageSmoothingQuality = 'high';
+  // 'low' is plain bilinear in Chrome, which matches cv2.INTER_LINEAR — the
+  // filter the Python reference (and yolov5 training) used. 'high' is Lanczos
+  // and measurably drifts scores on borderline boxes.
+  ctx.imageSmoothingQuality = 'low';
   ctx.drawImage(source, lb.padLeft, lb.padTop, lb.newW, lb.newH);
 
   const { data: px } = ctx.getImageData(0, 0, size, size);

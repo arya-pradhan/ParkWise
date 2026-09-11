@@ -45,6 +45,8 @@ const nextConfig: NextConfig = {
       path: false,
       crypto: false,
     };
+
+
     return config;
   },
 };
