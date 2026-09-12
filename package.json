@@ -16,7 +16,7 @@
     "e2e": "node e2e/detect.mjs && node e2e/video.mjs"
   },
   "dependencies": {
-    "next": "15.5.4",
+    "next": "^15.5.25",
     "onnxruntime-web": "1.20.1",
     "react": "19.1.1",
     "react-dom": "19.1.1"
@@ -28,7 +28,7 @@
     "@types/react": "19.1.13",
     "@types/react-dom": "19.1.9",
     "eslint": "9.35.0",
-    "eslint-config-next": "15.5.4",
+    "eslint-config-next": "^15.5.25",
     "playwright": "^1.55.0",
     "tailwindcss": "4.1.13",
     "typescript": "5.9.2",
