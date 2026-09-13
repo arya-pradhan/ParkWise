@@ -25,17 +25,22 @@ git clone --branch v7.0 --depth 1 https://github.com/ultralytics/yolov5 tools\ex
 
 ## Export
 
+Input size is part of the graph. The 2022 model shipped at 416; the PKLot
+retrain (see `tools/train/`) ships at 640 because PKLot's far-row spaces are
+too small at 416. The size goes into the filename and every downstream script
+reads it from there.
+
 ```powershell
 cd tools\export\yolov5
 ..\.venv\Scripts\python.exe export.py --weights ..\..\..\models\best.pt `
-  --imgsz 416 416 --batch-size 1 --include onnx --opset 12 --simplify
+  --imgsz 640 640 --batch-size 1 --include onnx --opset 12 --simplify
 ```
 
 Then content-hash the filename so it can be cached immutably:
 
 ```powershell
 $h = (Get-FileHash models\best.onnx -Algorithm SHA256).Hash.Substring(0,8).ToLower()
-Move-Item models\best.onnx "public\models\parkwise-416.$h.onnx"
+Move-Item models\best.onnx "public\models\parkwise-640.$h.onnx"
 ```
 
 ## Verify (do not skip)
