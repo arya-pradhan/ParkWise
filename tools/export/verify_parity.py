@@ -5,7 +5,7 @@ Run AFTER export.py. Produces tools/export/fixtures/ which BOTH the vitest
 suite (src/lib/detect/postprocess.test.ts) and the browser /debug/parity page
 assert against.
 
-  python verify_parity.py --weights ../../models/best.pt --onnx ../../public/models/<name>.onnx
+  python verify_parity.py --onnx ../../public/models/<name>.onnx --imgsz 640 --sample GOPR6541
 
 THE PARITY TRAP
 ---------------
@@ -58,8 +58,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--weights", default=str(HERE.parent.parent / "models" / "best.pt"))
     ap.add_argument("--onnx", required=True)
-    ap.add_argument("--image", default=None, help="sample image; defaults to GOPR6541")
-    ap.add_argument("--imgsz", type=int, default=416)
+    ap.add_argument("--sample", default="GOPR6541",
+                    help="stem of an image in public/samples/ (also names the fixture)")
+    ap.add_argument("--image", default=None, help="explicit image path; overrides --sample")
+    ap.add_argument("--imgsz", type=int, default=640)
     ap.add_argument("--conf", type=float, default=0.25)
     ap.add_argument("--iou", type=float, default=0.45)
     ap.add_argument("--outdir", default=str(HERE / "fixtures"))
@@ -70,9 +72,11 @@ def main():
 
     img_path = args.image
     if img_path is None:
-        up = HERE.parent.parent / "app" / "static" / "uploads"
-        cands = sorted(up.glob("GOPR6541*.jpg")) or sorted(up.glob("GOPR*.jpg"))
-        assert cands, f"no GOPR sample found under {up}"
+        # Samples live in public/samples/ (the 2022 app/static/uploads/ tree no
+        # longer exists — it was archived in the rebuild).
+        samples = HERE.parent.parent / "public" / "samples"
+        cands = sorted(samples.glob(f"{args.sample}*.jpg"))
+        assert cands, f"no sample matching '{args.sample}*' under {samples}"
         img_path = str(cands[0])
     print(f"[i] sample image: {img_path}")
 
@@ -154,7 +158,7 @@ def main():
     # ---- 7. emit fixtures ---------------------------------------------------
     out = pathlib.Path(args.outdir)
     out.mkdir(parents=True, exist_ok=True)
-    stem = pathlib.Path(img_path).name.split("_")[0] or "sample"
+    stem = args.sample if args.image is None else pathlib.Path(img_path).stem
 
     x.astype(np.float32).tofile(out / f"{stem}.input.bin")
     onnx_out.astype(np.float32).tofile(out / f"{stem}.raw.bin")

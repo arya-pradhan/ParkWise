@@ -5,8 +5,11 @@ timeline has something to chart. Each frame is held for `hold` seconds.
 """
 import sys, pathlib, cv2
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-seq = ["example-empty", "GOPR6541", "GOPR6600", "GOPR6628", "GOPR6702",
-       "example-full", "GOPR6567", "GOPR6588", "GOPR6635", "example-empty"]
+# PKLot frames, in-distribution for the retrained model. Ordered to sweep
+# occupancy so the timeline has something to chart; make_manifest.py prints
+# per-sample counts — reorder here if the sweep looks flat.
+seq = ["pklot-01", "pklot-02", "pklot-03", "pklot-04", "pklot-05",
+       "pklot-06", "pklot-07", "pklot-08", "pklot-01"]
 fps, hold = 10, 1.0
 dst = ROOT / "e2e" / "fixtures" / "lot-timelapse.webm"
 dst.parent.mkdir(parents=True, exist_ok=True)

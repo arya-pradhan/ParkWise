@@ -1,5 +1,5 @@
 """Render one clean annotated sample for the landing page hero."""
-import sys, pathlib
+import sys, pathlib, re
 import numpy as np, cv2, torch
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / "yolov5"))
@@ -8,14 +8,15 @@ from utils.general import non_max_suppression
 from verify_parity import letterbox_square, to_tensor
 
 ROOT = HERE.parent.parent
-onnx_path = sorted((ROOT / "public" / "models").glob("parkwise-416.*.onnx"))[0]
+onnx_path = sorted((ROOT / "public" / "models").glob("parkwise-*.onnx"))[-1]
+IMGSZ = int(re.search(r"parkwise-(\d+)\.", onnx_path.name).group(1))
 sess = ort.InferenceSession(str(onnx_path), providers=["CPUExecutionProvider"])
 inn, outn = sess.get_inputs()[0].name, sess.get_outputs()[0].name
 
-src = ROOT / "public" / "samples" / (sys.argv[1] if len(sys.argv) > 1 else "example-full.jpg")
+src = ROOT / "public" / "samples" / (sys.argv[1] if len(sys.argv) > 1 else "pklot-01.jpg")
 img = cv2.imread(str(src))
 h0, w0 = img.shape[:2]
-padded, r, pl, pt = letterbox_square(img, 416)
+padded, r, pl, pt = letterbox_square(img, IMGSZ)
 out = sess.run([outn], {inn: to_tensor(padded)})[0]
 det = non_max_suppression(torch.from_numpy(out), 0.35, 0.45, max_det=300)[0]
 

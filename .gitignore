@@ -12,6 +12,7 @@ next-env.d.ts
 npm-debug.log*
 yarn-error.log*
 .eslintcache
+personal_pic_test
 
 # Copied out of node_modules by scripts/copy-ort-assets.mjs on pre{dev,build}.
 # Regenerated every install — never commit it.

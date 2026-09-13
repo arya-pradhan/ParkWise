@@ -42,8 +42,12 @@ Move-Item models\best.onnx "public\models\parkwise-416.$h.onnx"
 
 ```powershell
 cd tools\export
-.venv\Scripts\python.exe verify_parity.py --onnx ..\..\public\models\parkwise-416.<hash>.onnx
+.venv\Scripts\python.exe verify_parity.py --onnx ..\..\public\models\parkwise-640.<hash>.onnx --imgsz 640 --sample GOPR6541
+.venv\Scripts\python.exe verify_parity.py --onnx ..\..\public\models\parkwise-640.<hash>.onnx --imgsz 640 --sample pklot-01
 ```
+
+`--sample` is a stem in `public/samples/` and also names the fixture files.
+Run it on one out-of-distribution frame and one in-distribution frame.
 
 This asserts torch/ONNX agreement, asserts the output shape, asserts the class
 order, and emits `fixtures/` — which the vitest suite and the browser
@@ -74,7 +78,7 @@ a **square**-letterboxed tensor, which is exactly what `verify_parity.py` does.
   Worth knowing — it's why exporting at both 416 and 640 and comparing on the
   sample images is worth the ten minutes, rather than assuming 416 wins.
 - Checkpoint date `2022-07-07`, `epoch = -1` (stripped for inference)
-- Output at 416: `[1, 10647, 7]` — (52²+26²+13²) × 3 anchors, `4 xywh + 1 obj + 2 cls`
+- Output at 416: `[1, 10647, 7]` — (52²+26²+13²) × 3 anchors; at 640: `[1, 25200, 7]` — (80²+40²+20²) × 3. Always `4 xywh + 1 obj + 2 cls`
 
 ## The Detect decode is INSIDE the graph
 

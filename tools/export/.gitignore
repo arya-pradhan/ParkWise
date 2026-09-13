@@ -3,3 +3,5 @@
 yolov5/
 out/
 *.onnx
+compare.png
+compare_416_vs_640.png

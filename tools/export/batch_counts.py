@@ -4,7 +4,7 @@ Named samples carry ground truth ("...good-full", "...good-empty"), so this is a
 cheap check that the class mapping is not inverted and the model is not just
 emitting one class for everything.
 """
-import sys, pathlib, glob
+import sys, pathlib, glob, re
 import numpy as np
 
 HERE = pathlib.Path(__file__).resolve().parent
@@ -13,12 +13,12 @@ import torch, cv2, onnxruntime as ort
 from utils.general import non_max_suppression
 from verify_parity import letterbox_square, to_tensor
 
-onnx_path = sys.argv[1] if len(sys.argv) > 1 else str(HERE.parent.parent / "models" / "best.onnx")
-IMGSZ = int(sys.argv[2]) if len(sys.argv) > 2 else 416
+onnx_path = sys.argv[1] if len(sys.argv) > 1 else str(sorted((HERE.parent.parent / "public" / "models").glob("parkwise-*.onnx"))[-1])
+IMGSZ = int(sys.argv[2]) if len(sys.argv) > 2 else int(re.search(r"parkwise-(\d+)\.", onnx_path).group(1) if "parkwise-" in onnx_path else 640)
 sess = ort.InferenceSession(onnx_path, providers=["CPUExecutionProvider"])
 inn, outn = sess.get_inputs()[0].name, sess.get_outputs()[0].name
 
-up = HERE.parent.parent / "app" / "static" / "uploads"
+up = HERE.parent.parent / "public" / "samples"
 files = sorted(glob.glob(str(up / "*.jpg")))
 skip = ("Arya_profile", "bush", "car", "key", "pickaxe", "rubiks",
         "gettyimages", "istockphoto")
